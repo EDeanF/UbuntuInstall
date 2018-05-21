@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "0=silent, 1=balanced, 2=performance"
+
+read input
+
+case $input in
+	0) echo silent | tee /sys/devices/platform/sony-laptop/thermal_control >/dev/null;;
+	1) echo balanced | tee /sys/devices/platform/sony-laptop/thermal_control >/dev/null;;
+	2) echo performance | tee /sys/devices/platform/sony-laptop/thermal_control >/dev/null;;
+	*) echo "unrecognized input";;
+esac
